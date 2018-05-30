@@ -3,11 +3,16 @@ from nltk import word_tokenize
 from nltk import pos_tag
 english_vocab = set(w.lower() for w in nltk.corpus.words.words())
 
-# What are your name and your surname (Both must be started with capital letter!) ?
-# เอาคำแรกที่เป็น NNX หลัง name and surname
+def isFloat(n):
+	try:
+		float(n)
+		return True
+	except ValueError:
+		return False
 
 def replymessage(user_input_message, nq):
 	if nq == 1:
+		# What are your name and your surname (Both must be started with capital letter!) ?
 		global english_vocab
 
 		user_input = user_input_message.lower()
@@ -106,6 +111,43 @@ def replymessage(user_input_message, nq):
 					reply_message += (' Sorry, I did not get what your surname is')
 
 			return reply_message
+
+	elif nq == 2:
+		# Gender => Male/Female
+		if user_input_message.lower() == 'male' or user_input_message.lower() == 'female':
+			reply_message = 'Your gender is ' + user_input_message.lower() + '.'
+		else:
+			reply_message = 'I still do not know what your gender is.'
+		return reply_message
+
+	elif nq == 3:
+		# Age
+		if user_input_message.isdigit():
+			if float(user_input_message) >= 1 and float(user_input_message) <= 100:
+				reply_message = 'Your age is ' + user_input_message
+			else:
+				reply_message = 'Your age must be between 1 and 100' 
+		else:
+			reply_message = 'It is not a valid number for age (1-100)'
+		return reply_message
+
+	elif nq == 4:
+		# Height in cm
+		if isFloat(user_input_message):
+			reply_message = 'Your height is ' + user_input_message + '.'
+			return reply_message
+
+	elif nq == 5:
+		# Weight in kg
+		if isFloat(user_input_message):
+			reply_message = 'Your weight is ' + user_input_message + '.'
+			return reply_message
+		return reply_message
+
+	elif nq == 6:
+		# Pressure
+		reply_message = 'Your pressure is ' + user_input_message + '.'
+		return reply_message
 
 # Test
 print(replymessage(input('What are your name and your surname (Both must be started with a capital letter!) ? '), 1))
