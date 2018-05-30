@@ -16,7 +16,7 @@ def index():
 def bot():
     # ข้อความที่ต้องการส่งกลับ
     replyStack = list()
-   
+       
     # ข้อความที่ได้รับมา
     msg_in_json = request.get_json()
     msg_in_string = json.dumps(msg_in_json)
