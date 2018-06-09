@@ -9,3 +9,4 @@ urllib3==1.21.1
 Werkzeug==0.12.2
 nltk==3.2.4
 dialogflow==0.3.0
+Flask-PyMongo==0.5.2
