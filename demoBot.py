@@ -149,5 +149,9 @@ def replymessage(user_input_message, nq):
 		reply_message = 'Your pressure is ' + user_input_message + '.'
 		return reply_message
 
+	elif nq == 7:
+		# Have you ever been to a hospital before ?
+		return reply_message
+		
 # Test
 print(replymessage(input('What are your name and your surname (Both must be started with a capital letter!) ? '), 1))

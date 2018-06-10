@@ -6,11 +6,15 @@ from models.users import User
 from bot import Bot
 
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
-global LINE_API_KEY
-LINE_API_KEY = 'Bearer YOURSECRETKEY'
+global LINE_API_KEY, MONGODB_URL
+
+LINE_API_KEY = "Bearer YOURSECRETKEY"
+
+MONGODB_URL = "mongodb://pongpisit:a1s2d3@ds253960.mlab.com:53960/doctora2zdev"
+mongoengine.connect(db='doctorAZdev', host=MONGODB_URL, connectTimeoutMS=30000, socketTimeoutMS=None ,socketKeepAlive=True)
+
 
 app = Flask(__name__)
-mongoengine.connect('doctorAZdev')
 bot_client = Bot()
 
 
