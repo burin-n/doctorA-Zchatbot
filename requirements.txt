@@ -10,3 +10,4 @@ Werkzeug==0.12.2
 nltk==3.2.4
 dialogflow==0.3.0
 Flask-PyMongo==0.5.2
+mongoengine==0.15.0
