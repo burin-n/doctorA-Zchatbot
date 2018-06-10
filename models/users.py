@@ -1,4 +1,4 @@
-from mongoengine import Document, StringField, DateTimeField
+from mongoengine import Document, StringField, DateTimeField, BooleanField, DecimalField, FloatField
 
 class User(Document):    
     name = StringField(max_length=50, default=None)
@@ -17,6 +17,7 @@ class User(Document):
     last_msg_time = DateTimeField(default=None)
     last_msg = StringField(max_length=300,default=None)
     last_response = DecimalField(default='')
+    is_confirm = BooleanField(default=False)
     meta = {
         'indexes' : [ 'line_id' ]
     }
