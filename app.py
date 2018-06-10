@@ -36,9 +36,9 @@ def bot():
     response_msg = bot_client.response(userId, message)
 
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไป-มา (แบบ json)
-    return reply(replyToken, response_msg)
+    reply(replyToken, response_msg)
     
-    #return('OK',200)
+    return('OK',200)
 
 
 def reply(replyToken, textList):
@@ -59,7 +59,7 @@ def reply(replyToken, textList):
         "messages":msgs
     })
     requests.post(LINE_API, headers=headers, data=data)
-    return data
+    return
 
 if __name__ == '__main__':
     app.run()
